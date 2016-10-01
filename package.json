@@ -1,0 +1,28 @@
+{
+    "name": "markdown-editor",
+    "version": "0.0.1",
+    "description": "online markdown editor",
+    "main": "app.js",
+    "private": true,
+    "scripts": {
+        "start": "nodemon app.js"
+    },
+    "keywords": [
+        "markdown",
+        "editor"
+    ],
+    "author": "Kostas Milonas",
+    "license": "BSD-2-Clause",
+    "dependencies": {
+        "body-parser": "~1.15.2",
+        "express": "~4.14.0",
+        "markdown": "~0.5.0",
+        "mongoose": "~4.6.2",
+        "morgan": "~1.7.0",
+        "nodemon": "~1.10.2",
+        "pug": "^2.0.0-beta6",
+        "serve-favicon": "~2.3.0",
+        "wkhtmltopdf": "~0.3.3",
+        "ws": "~1.1.1"
+    }
+}

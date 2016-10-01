@@ -1,0 +1,5 @@
+node_modules/
+public/export/*
+nbproject/
+.app.js.swp
+npm-debug.log

@@ -1,0 +1,22 @@
+extends layout
+
+block content
+    #markdown.column
+        div.options
+            h3.option.export(data-input-type="markdown",data-output-type="text") Export text
+            h3.option.export(data-input-type="markdown",data-output-type="pdf") Export PDF
+
+        h3 Markdown
+        textarea.content(data-type="markdown")
+    #html.column
+        div.options
+            h3.option.raw-html Source code
+            h3.option.rendered-html(style="display:none") Rendered
+            h3.option.export(data-input-type="html",data-output-type="text") Export text
+            h3.option.export(data-input-type="html",data-output-type="pdf") Export PDF
+
+        h3 HTML
+        div.content(data-type="html")
+
+        textarea.content(data-type="raw-html",style="display:none")
+    iframe#downloadhelper(style="display:none")
