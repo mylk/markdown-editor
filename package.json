@@ -21,7 +21,6 @@
         "morgan": "~1.7.0",
         "nodemon": "~1.10.2",
         "pug": "^2.0.0-beta6",
-        "serve-favicon": "~2.3.0",
         "wkhtmltopdf": "~0.3.3",
         "ws": "~1.1.1"
     }
