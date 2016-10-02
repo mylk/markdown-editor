@@ -1,5 +1,6 @@
 var mongoose = require("mongoose");
 
+mongoose.Promise = global.Promise;
 // @TODO: assign username and password
 mongoose.connect("mongodb://localhost:27017/markdown");
 
