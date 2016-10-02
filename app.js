@@ -11,10 +11,8 @@ var mongoose = require("mongoose");
 var logModel = require("./models").logModel;
 var utils = require("./utils");
 var wkhtmltopdf = require("wkhtmltopdf");
-//var serveFavicon = require("serve-favicon");
-//var morgan = require("morgan");
+var morgan = require("morgan");
 var bodyParser = require("body-parser");
-var methodOverride = require("method-override");
 
 var modules = {
     markdown: markdown,
@@ -31,15 +29,16 @@ app.set("port", process.env.PORT || 3000);
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "pug");
 app.use(express.static(path.join(__dirname, "public")));
-//app.use(serveFavicon);
-//app.use(morgan("dev"));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ "extended": false }));
-app.use(methodOverride);
 
 var server = http.createServer(app).listen(app.get("port"), function () {
     console.log("Express server listening on port " + app.get("port"));
 });
+
+// log requests to "access.log" file
+var accessLogStream = fs.createWriteStream(__dirname + "/access.log", { flags: "a" });
+app.use(morgan("common", {stream: accessLogStream}));
 
 // create the websocket server
 var wss = new webSocketServer({ server: server });

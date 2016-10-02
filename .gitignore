@@ -3,3 +3,4 @@ public/export/*
 nbproject/
 .app.js.swp
 npm-debug.log
+access.log
