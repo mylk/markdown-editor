@@ -15,6 +15,7 @@ var morgan = require("morgan");
 var bodyParser = require("body-parser");
 
 var modules = {
+    mongoose: mongoose,
     markdown: markdown,
     fs: fs,
     logModel: logModel,

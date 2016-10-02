@@ -1,13 +1,17 @@
-var mongoose = require("mongoose");
+module.exports = function (req, mongoose, utils) {
+    var logSchema = new mongoose.Schema({
+        ip: String,
+        browser: String,
+        datetime: String
+    });
 
-mongoose.Promise = global.Promise;
-// @TODO: assign username and password
-mongoose.connect("mongodb://localhost:27017/markdown");
+    var logSchemaInstance = mongoose.model("logs", logSchema);
 
-var logSchema = new mongoose.Schema({
-    ip: String,
-    browser: String,
-    datetime: String
-});
+    var logInstance = new logSchemaInstance({
+        ip: req.connection.remoteAddress,
+        browser: req.headers["user-agent"],
+        datetime: utils.getDateTime()
+    });
 
-module.exports = mongoose.model("logs", logSchema);
+    return logInstance;
+};

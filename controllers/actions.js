@@ -1,14 +1,12 @@
-exports.index = function (logModel, utils) {
+exports.index = function (mongoose, logModel, utils) {
     return function (req, res) {
         res.render("index", { title: "home" });
 
-        // req.connection retrives the net.Socket object of the request
-        var logInstance = new logModel({
-            ip: req.connection.remoteAddress,
-            browser: req.headers["user-agent"],
-            datetime: utils.getDateTime()
-        });
+        mongoose.Promise = global.Promise;
+        // @TODO: assign username and password
+        mongoose.connect("mongodb://localhost:27017/markdown");
 
+        var logInstance = new logModel(req, mongoose, utils);
         logInstance.save(function (err) {
             // @TODO: really log that error somewhere
             if (err) {
