@@ -1,0 +1,22 @@
+version: "2"
+services:
+    node:
+        build: .
+        command: npm start
+        ports:
+            - "80:3000"
+        volumes:
+            - ./:/application
+            - modules:/application/node_modules
+        networks:
+            - markdown_editor
+    mongo:
+        image: mongo:latest
+        networks:
+            - markdown_editor
+networks:
+    markdown_editor:
+        driver: "bridge"
+volumes:
+    modules:
+        driver: "local"
