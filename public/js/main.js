@@ -16,7 +16,7 @@ var retries = 1;
 var socket;
 
 function createWebSocket() {
-    var ws = new WebSocket('ws://localhost:3000');
+    var ws = new WebSocket('ws://localhost:80');
 
     ws.onclose = function () {
         var timeout = generateTimeout(retries);

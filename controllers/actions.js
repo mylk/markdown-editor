@@ -4,7 +4,7 @@ exports.index = function (mongoose, logModel, utils) {
 
         mongoose.Promise = global.Promise;
         // @TODO: assign username and password
-        mongoose.connect("mongodb://localhost:27017/markdown");
+        mongoose.connect("mongodb://mongo:27017/markdown");
 
         var logInstance = new logModel(req, mongoose, utils);
         logInstance.save(function (err) {
