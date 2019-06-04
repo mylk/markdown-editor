@@ -1,6 +1,8 @@
 node_modules/
 public/export/*
 nbproject/
+.project
+.settings/
 .app.js.swp
 npm-debug.log
 access.log
