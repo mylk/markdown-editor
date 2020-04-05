@@ -17,7 +17,7 @@
         "body-parser": "~1.15.2",
         "express": "~4.14.0",
         "markdown": "~0.5.0",
-        "mongoose": "~4.13.18",
+        "mongoose": ">=5.7.5",
         "morgan": ">=1.9.1",
         "nodemon": "~1.10.2",
         "pug": "^2.0.0-beta6",
