@@ -5,7 +5,7 @@ var http = require("http");
 var path = require("path");
 var fs = require("fs");
 var webSocketServer = require("ws").Server;
-var markdown = require("markdown").markdown;
+var markdown = require("markdown-it")();
 var controllers = require("./controllers").actions;
 var mongoose = require("mongoose");
 var logModel = require("./models").logModel;
@@ -45,7 +45,7 @@ app.use(morgan("common", {stream: accessLogStream}));
 var wss = new webSocketServer({ server: server });
 wss.on("connection", function (socket) {
     socket.on("message", function (data) {
-        socket.send(markdown.toHTML(data));
+        socket.send(markdown.render(data));
     });
 
     socket.on("error", function (error) {

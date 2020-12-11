@@ -26,7 +26,7 @@ exports.render = function (markdown) {
         });
 
         req.on("end", function () {
-            res.send(markdown.toHTML(data));
+            res.send(markdown.render(data));
         });
     };
 };
