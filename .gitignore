@@ -1,8 +1,16 @@
-node_modules/
-public/export/*
+#IDEs
 nbproject/
 .project
 .settings/
-.app.js.swp
+
+# logs
 npm-debug.log
 access.log
+
+# application specific
+node_modules/
+public/export/*
+
+# excludes
+!public/export/.gitkeep
+
